@@ -1,0 +1,23 @@
+<ion-content padding>
+  <ion-button ion-button (click)="closeModal()" class="close-btn" routerDirection="backward">
+    <ion-icon name="close"></ion-icon>
+  </ion-button>
+
+  <ion-grid class="fullheight">
+    <ion-row class="fullheight">
+      <ion-col>
+        <div class="card-ion">
+          <h2>{{ title }}</h2>
+          <p>{{ msg }}</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="text-center bottom-position fullWidth">
+    <ion-row>
+      <ion-col size="6" offset="6">
+        <ion-button ion-button expand="block" class="btn-blue" (click)="closeModal()">Entiendo</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

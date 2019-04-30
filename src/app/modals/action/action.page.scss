@@ -1,0 +1,15 @@
+.close-btn{
+  position              : absolute;
+  right                 : 15px;
+  top                   : 15px;
+  z-index               : 10;
+  --background          : transparent;
+  --background-focused  : transparent;
+  --background-activated: transparent;
+  --box-shadow          : none;
+
+  ion-icon{
+    color    : #808383;
+    font-size: 33px;
+  }
+}

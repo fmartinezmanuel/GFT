@@ -1,0 +1,84 @@
+<ion-content>
+  <div class="ion-padding loginPage" *ngIf="loginView">
+    <h1 class="ion-text-center">Iniciar sesión</h1>
+    <form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="sendLogin()">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item required>
+              <ion-label position="floating">Usuario:</ion-label>
+              <ion-input formControlName="email" type="text" name="email" [email]="true"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="email.hasError('required') && email.touched" class="input-error-msg">
+              <p>* Ingresa una dirección de correo valida.</p>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Contraseña:</ion-label>
+              <ion-input formControlName="password" type="password" name="password"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="password.hasError('required') && password.touched" class="input-error-msg">
+              <p>* Ingresa tu contraseña, mínimo 5 caracteres.</p>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button fill="outline" expand="block" (click)="switchRegisterLogin()">Registrarme</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" type="submit" [disabled]="loginForm.invalid">Entrar</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+
+  <div class="ion-padding loginPage" *ngIf="registerView">
+    <h1 class="ion-text-center">Registro nuevo usuario</h1>
+    <form *ngIf="registerForm" [formGroup]="registerForm" (ngSubmit)="registerNewUser()">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">¿Cual es su nombre?:</ion-label>
+              <ion-input formControlName="firstName" type="text" name="name" [(ngModel)]="firstName"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">¿Cual es su apellido?:</ion-label>
+              <ion-input formControlName="lastName" type="text" name="name" [(ngModel)]="lastName"></ion-input>
+            </ion-item>
+            <ion-item required>
+              <ion-label position="floating">Ingresa tu email:</ion-label>
+              <ion-input formControlName="emailRegister" type="text" name="emailRegister" [email]="true"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="emailRegister.hasError('required') && emailRegister.touched" class="input-error-msg">
+              <p>* Ingresa tu dirección de correo valida.</p>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Crea una contraseña:</ion-label>
+              <ion-input formControlName="passwordRegister" type="password" name="passwordRegister"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="passwordRegister.hasError('required') && passwordRegister.touched" class="input-error-msg">
+              <p>* Tu contraseña debe tener mínimo 5 caracteres.</p>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Crea una contraseña:</ion-label>
+              <ion-input formControlName="passwordVerify" type="password" name="passwordVerify"></ion-input>
+            </ion-item>
+            <ion-item class='input-error-msg form-text error' *ngIf="registerForm.controls.passwordVerify.touched && registerForm.controls['passwordVerify'].errors?.MatchPassword">
+             <p>* Las contraseñas no coinciden</p>
+           </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button fill="outline" expand="block" (click)="switchRegisterLogin()"><ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>Regresar</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" type="submit" [disabled]="registerForm.invalid" [class.button-disabled]="true">Registrarme</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>

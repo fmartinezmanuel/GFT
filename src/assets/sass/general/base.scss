@@ -1,0 +1,12 @@
+.no-fixed{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.input-error-msg{
+  --inner-border-width: 0;
+  p{
+    color    : red;
+    font-size: 12px;
+  }
+}//input-error-msg ends..

@@ -1,0 +1,63 @@
+<ion-content>
+  <ion-grid class="no-fixed">
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-padding">Catálogo de cuentas a solicitar</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let item of catalogs let i = index" size-xs="12" size-md="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{ item?.type }}</ion-card-subtitle>
+            <ion-card-title>{{ item?.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-button class="ion-float-right ion-margin" fill="outline" slot="end" (click)="getAccount(i)">Solicitar</ion-button>
+        </ion-card>
+      </ion-col>
+      <!-- <ion-col size-xs="12" size-md="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>TDD</ion-card-subtitle>
+            <ion-card-title>Tarjeta de Debito</ion-card-title>
+          </ion-card-header>
+          <ion-button class="ion-float-right ion-margin" fill="outline" slot="end">Solicitar</ion-button>
+        </ion-card>
+      </ion-col> -->
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h2>Cuentas autorizadas</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let account of accounts" size-xs="12" size-md="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Tipo: {{ account?.type }}</ion-card-subtitle>
+            <ion-card-title>Nombre: {{ account?.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Detalles: </p>
+            <ul>
+              <li>Depositos: {{ account?.deposits }}</li>
+              <li>Retiros: {{ account?.withdrawals }}</li>
+              <li>Balance: {{ account?.balance }}</li>
+            </ul>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col *ngIf='accounts?.length === 0'>
+        <ion-item>No existen cuentas verificadas</ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button class="ion-float-right ion-margin" expand="block" (click)="authService.logout()">Cerrar sesion</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
