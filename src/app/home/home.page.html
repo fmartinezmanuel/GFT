@@ -26,7 +26,7 @@
             <ion-button fill="outline" expand="block" (click)="switchRegisterLogin()">Registrarme</ion-button>
           </ion-col>
           <ion-col>
-            <ion-button expand="block" type="submit" [disabled]="loginForm.invalid">Entrar</ion-button>
+            <ion-button expand="block" type="submit" [disabled]="loginForm.invalid">Entrar <ion-spinner name="dots" *ngIf="loadingPresent"></ion-spinner></ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -75,7 +75,7 @@
             <ion-button fill="outline" expand="block" (click)="switchRegisterLogin()"><ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>Regresar</ion-button>
           </ion-col>
           <ion-col>
-            <ion-button expand="block" type="submit" [disabled]="registerForm.invalid" [class.button-disabled]="true">Registrarme</ion-button>
+            <ion-button expand="block" type="submit" [disabled]="registerForm.invalid" [class.button-disabled]="true">Registrarme <ion-spinner name="dots" *ngIf="loadingPresent"></ion-spinner></ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>

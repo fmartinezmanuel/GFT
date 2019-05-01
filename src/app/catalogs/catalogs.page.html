@@ -15,20 +15,11 @@
           <ion-button class="ion-float-right ion-margin" fill="outline" slot="end" (click)="getAccount(i)">Solicitar</ion-button>
         </ion-card>
       </ion-col>
-      <!-- <ion-col size-xs="12" size-md="6">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>TDD</ion-card-subtitle>
-            <ion-card-title>Tarjeta de Debito</ion-card-title>
-          </ion-card-header>
-          <ion-button class="ion-float-right ion-margin" fill="outline" slot="end">Solicitar</ion-button>
-        </ion-card>
-      </ion-col> -->
     </ion-row>
 
     <ion-row>
       <ion-col>
-        <h2>Cuentas autorizadas</h2>
+        <h2 class="ion-padding">Cuentas autorizadas</h2>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -49,7 +40,7 @@
         </ion-card>
       </ion-col>
       <ion-col *ngIf='accounts?.length === 0'>
-        <ion-item>No existen cuentas verificadas</ion-item>
+        <ion-item>No existen cuentas verificadas, espera 24 hrs para que el equipo de GFT pueda aprobarla.</ion-item>
       </ion-col>
     </ion-row>
 

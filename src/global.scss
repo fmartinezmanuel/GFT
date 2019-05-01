@@ -11,3 +11,17 @@
 @import '~@ionic/angular/css/flex-utils.css';
 
 @import 'assets/sass/main.scss';
+
+.modal-wrapper, #modalMsg{
+  height: 200px;
+  --height: 200px;
+}
+.modal-wrapper.sc-ion-modal-md {
+  --height: 200px;
+}
+
+.sc-ion-modal-md-h {
+  @media only screen and (min-height: 600px) and (min-width: 768px){
+    --height: 200px;
+  }
+}
